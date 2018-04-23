@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pers.loren.coderhub.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="pers.loren.coderhub.domain.UserEntity">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+    <insert id="insertUser">
+        INSERT INTO user_tb (name,age,address) VALUES (#{name},#{age},#{address})
+    </insert>
+    <update id="updateUser">
+        UPDATE user_tb SET age= #{age} WHERE name=#{name}
+    </update>
+    <delete id="deleteUser">
+        DELETE FROM user_tb WHERE name IN (
+        <foreach collection="array" item="name" separator=",">
+            #{name}
+        </foreach>
+        )
+    </delete>
+    <!--(SELECT name FROM user_tb GROUP BY name HAVING COUNT (name) =#{name} )-->
+    <select id="findByName" resultMap="BaseResultMap">
+       SELECT *
+        FROM user_tb WHERE name=#{name}
+    </select>
+    <select id="getAll" resultMap="BaseResultMap">
+         SELECT * FROM user_tb
+    </select>
+</mapper>
