@@ -10,10 +10,12 @@
 #### 2.计划要实现的功能
 
 * ~~Mybatis~~
-* 登录注册 JWT
+* Mybatis分页插件
+* JWT
 * 单点登录
 * 定时任务
 * Redis
+* AOP
 
 
 
