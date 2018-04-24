@@ -8,4 +8,8 @@ import java.util.List;
 //@Repository
 public interface UserMapper {
     List<UserEntity> getAll();
+
+    UserEntity findByName(String username);
+
+    int insertUser(UserEntity userEntity);
 }

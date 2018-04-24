@@ -4,9 +4,12 @@
     <resultMap id="BaseResultMap" type="pers.loren.coderhub.domain.UserEntity">
         <id column="id" jdbcType="VARCHAR" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
     </resultMap>
     <insert id="insertUser">
-        INSERT INTO user_tb (name,age,address) VALUES (#{name},#{age},#{address})
+        INSERT INTO user_tb (name,age,address,password) VALUES (#{name},#{age},#{address},#{password})
     </insert>
     <update id="updateUser">
         UPDATE user_tb SET age= #{age} WHERE name=#{name}
@@ -18,7 +21,6 @@
         </foreach>
         )
     </delete>
-    <!--(SELECT name FROM user_tb GROUP BY name HAVING COUNT (name) =#{name} )-->
     <select id="findByName" resultMap="BaseResultMap">
        SELECT *
         FROM user_tb WHERE name=#{name}

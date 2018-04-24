@@ -20,4 +20,14 @@ public class UserServiceImpl implements UserService {
     public List<UserEntity> getAllUser() {
         return userMapper.getAll();
     }
+
+    @Override
+    public UserEntity selectByUserName(String username) {
+        return userMapper.findByName(username);
+    }
+
+    @Override
+    public int insertUser(UserEntity userEntity) {
+        return userMapper.insertUser(userEntity);
+    }
 }
