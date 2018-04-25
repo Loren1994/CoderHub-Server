@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import pers.loren.coderhub.jwt.JWTFilter;
 
 import java.util.ArrayList;
@@ -12,6 +15,9 @@ import java.util.List;
 
 @SpringBootApplication
 @MapperScan("pers.loren.coderhub.mapper")
+@EnableScheduling
+@EnableAsync
+@EnableTransactionManagement
 public class CoderhubApplication {
     public static void main(String[] args) {
         SpringApplication.run(CoderhubApplication.class, args);
