@@ -37,5 +37,6 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.2.46'
     implementation 'io.jsonwebtoken:jjwt:0.6.0'
     optional 'org.springframework.boot:spring-boot-configuration-processor'
+    implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.5'
 }
 compileJava.dependsOn processResources

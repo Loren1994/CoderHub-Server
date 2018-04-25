@@ -1,6 +1,7 @@
 package pers.loren.coderhub.controller;
 
-import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,6 @@ import pers.loren.coderhub.util.Result;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
-import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -25,9 +25,9 @@ public class UserController {
     private Audience audience;
 
     @GetMapping("/getAll")
-    public Result getAll() {
-        List<UserEntity> list = userService.getAllUser();
-        return new Result(list);
+    public Result getAll(@RequestParam int pageNum, @RequestParam int pageSize) {
+        PageInfo pageInfo = PageHelper.startPage(pageNum, pageSize).doSelectPageInfo(() -> userService.getAllUser());
+        return new Result(pageInfo);
     }
 
     @PostMapping("/login")
