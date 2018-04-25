@@ -25,6 +25,8 @@ public class JWTFilter extends GenericFilterBean {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         final HttpServletRequest httpRequest = (HttpServletRequest) request;
         final HttpServletResponse httpResponse = (HttpServletResponse) response;
+        httpResponse.addHeader("Access-Control-Allow-Origin", "*");
+        httpResponse.setHeader("Content-Type", "application/json;charset=UTF-8");
         //请求头信息authorization
         final String authHeader = httpRequest.getHeader(Constants.AUTHOR_HEADER);
         if ("OPTIONS".equals(httpRequest.getMethod())) {

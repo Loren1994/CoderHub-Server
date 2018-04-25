@@ -27,7 +27,7 @@ public class UserController {
     @GetMapping("/getAll")
     public Result getAll() {
         List<UserEntity> list = userService.getAllUser();
-        return new Result(JSON.toJSONString(list));
+        return new Result(list);
     }
 
     @PostMapping("/login")
