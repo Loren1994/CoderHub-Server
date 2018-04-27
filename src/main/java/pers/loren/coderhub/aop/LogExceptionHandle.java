@@ -23,6 +23,6 @@ public class LogExceptionHandle {
             logger.error("发声异常:" + e.getClass().getSimpleName() + ",\n" + e.getMessage());
             logger.info(">>>>>>>>>>异常结束<<<<<<<<<<<");
         }
-        return ResultUtil.error(e.getMessage());
+        return ResultUtil.error((null == e.getMessage() || e.getMessage().equals("")) ? e.getClass().getSimpleName() : e.getMessage());
     }
 }
