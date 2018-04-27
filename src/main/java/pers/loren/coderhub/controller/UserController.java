@@ -5,8 +5,8 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import pers.loren.coderhub.aop.LogException;
 import pers.loren.coderhub.constant.Constants;
-import pers.loren.coderhub.domain.OperationByMapDTO;
 import pers.loren.coderhub.domain.UserEntity;
 import pers.loren.coderhub.jwt.Audience;
 import pers.loren.coderhub.jwt.JWTHelper;
@@ -31,15 +31,14 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public Result login(@RequestBody HashMap<String, Object> hashMap, OperationByMapDTO operationByMapDTO, HttpServletResponse response) {
-        operationByMapDTO.setHashMap(hashMap);
+    public Result login(@RequestBody HashMap<String, Object> hashMap, HttpServletResponse response) {
         String username = hashMap.get("username").toString();
         UserEntity userEntity = userService.selectByUserName(username);
         if (null == userEntity) {
-            return new Result(HttpStatus.BAD_REQUEST.value(), Constants.INVALID_USERNAME);
+            throw new LogException(Constants.INVALID_USERNAME);
         }
         if (!userEntity.getPassword().equals(hashMap.get("password").toString())) {
-            return new Result(HttpStatus.BAD_REQUEST.value(), Constants.INVALID_PASSWORD);
+            throw new LogException(Constants.INVALID_PASSWORD);
         }
         String jwtToken = Constants.AUTHOR_HEADER_PREFIX +
                 JWTHelper.createJWT(username,
@@ -54,15 +53,18 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public Result register(@RequestBody HashMap<String, Object> hashMap, OperationByMapDTO operationByMapDTO) {
-        operationByMapDTO.setHashMap(hashMap);
+    public Result register(@RequestBody HashMap<String, Object> hashMap) {
+        UserEntity user = userService.selectByUserName(hashMap.get("username").toString());
+        if (user != null) {
+            throw new LogException(Constants.ALREADY_EXIST_USERNAME);
+        }
         UserEntity userEntity = new UserEntity();
         userEntity.setName(hashMap.get("username").toString());
         userEntity.setPassword(hashMap.get("password").toString());
         userEntity.setAddress(hashMap.get("address").toString());
         userEntity.setAge((int) hashMap.get("age"));
         userService.insertUser(userEntity);
-        return new Result("注册成功");
+        return new Result(200, "注册成功");
     }
 
 }

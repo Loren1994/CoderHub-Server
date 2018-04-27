@@ -16,6 +16,7 @@ public interface Constants {
     String EXPIRED_TOKEN = "过期的token";
     String INVALID_TOKEN = "无效的token";
     String INVALID_USERNAME = "用户不存在";
+    String ALREADY_EXIST_USERNAME = "用户已存在";
     String INVALID_PASSWORD = "密码错误";
     long INTERVAL_TIME = 1000 * 60;
 }
