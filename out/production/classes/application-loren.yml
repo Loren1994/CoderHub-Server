@@ -5,6 +5,25 @@ spring:
         password: root
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
+  kafka:
+        bootstrap-servers: 172.16.0.236:9092
+        consumer:
+              #指定消息被消费之后自动提交偏移量
+              # 即消息的编号，表示消费到了哪个位置，
+              # 消费者每消费完一条消息就会向kafka服务器汇报自己消消费到的那个消息的编号，
+              # 以便于下次继续消费
+              enable-auto-commit: true
+              #消费者组
+              group-id: consumer
+              #从最近的地方开始消费
+              auto-offset-reset: latest
+              # 指定消息key和消息体的编解码方式
+              key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+              value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        producer:
+              # 指定消息key和消息体的编解码方式
+              key-serializer: org.apache.kafka.common.serialization.StringSerializer
+              value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 server:
       port: 8080
@@ -15,3 +34,4 @@ audience:
   base64Secret: MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=
   name: restapiuser
   expiresSecond: 172800
+

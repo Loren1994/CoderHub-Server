@@ -1,0 +1,11 @@
+syntax = "proto3";
+option java_package = "proto";
+//生成的数据访问类的类名，如果没有指定此值，则生成的类名为proto文件名的驼峰命名方法
+option java_outer_classname = "UserProto";
+message UserProto {
+    int64 id = 1;
+    string name = 2;
+    string address = 3;
+    int64 age = 4;
+    string password = 5;
+}
