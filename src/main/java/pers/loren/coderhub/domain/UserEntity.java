@@ -1,6 +1,8 @@
 package pers.loren.coderhub.domain;
 
-public class UserEntity {
+import java.io.Serializable;
+
+public class UserEntity implements Serializable {
     private long id;
     private String name;
     private long age;

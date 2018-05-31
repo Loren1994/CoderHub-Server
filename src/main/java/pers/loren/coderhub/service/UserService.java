@@ -11,5 +11,5 @@ public interface UserService {
 
     int insertUser(UserEntity userEntity);
 
-
+    String testRedis(String id);
 }

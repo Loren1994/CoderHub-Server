@@ -67,4 +67,10 @@ public class UserController {
         return new Result(200, "注册成功");
     }
 
+    @GetMapping("/redis")
+    public Result testRedis(@RequestParam String str) {
+        String t = userService.testRedis(str);
+        return new Result(200, t + " - " + str);
+    }
+
 }

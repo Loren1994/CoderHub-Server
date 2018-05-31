@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -20,6 +21,7 @@ import java.util.List;
 @EnableScheduling
 @EnableAsync
 @EnableTransactionManagement
+@EnableCaching
 public class CoderhubApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(CoderhubApplication.class, args);
@@ -30,7 +32,7 @@ public class CoderhubApplication extends SpringBootServletInitializer {
     public FilterRegistrationBean<JWTFilter> jwtFilter() {
         final FilterRegistrationBean<JWTFilter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new JWTFilter());
-        //添加需要拦截的url
+        //添加需要拦截的url - 验证token
         List<String> urlPatterns = new ArrayList<>();
         urlPatterns.add("/user/getAll");
         String[] arr = new String[urlPatterns.size()];
