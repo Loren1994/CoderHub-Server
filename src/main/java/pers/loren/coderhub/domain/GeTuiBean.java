@@ -4,6 +4,15 @@ public class GeTuiBean {
     private int id;
     private String msg;
     private String pic;
+    private String positionUrl;
+
+    public String getPositionUrl() {
+        return positionUrl;
+    }
+
+    public void setPositionUrl(String positionUrl) {
+        this.positionUrl = positionUrl;
+    }
 
     public int getId() {
         return id;

@@ -1,6 +1,0 @@
-${AnsiColor.BRIGHT_YELLOW} _____   _____   _____   _____   _____    _   _   _   _   _____
-${AnsiColor.BRIGHT_YELLOW}/  ___| /  _  \ |  _  \ | ____| |  _  \  | | | | | | | | |  _  \
-${AnsiColor.BRIGHT_YELLOW}| |     | | | | | | | | | |__   | |_| |  | |_| | | | | | | |_| |
-${AnsiColor.BRIGHT_YELLOW}| |     | | | | | | | | |  __|  |  _  /  |  _  | | | | | |  _  {
-${AnsiColor.BRIGHT_YELLOW}| |___  | |_| | | |_| | | |___  | | \ \  | | | | | |_| | | |_| |
-${AnsiColor.BRIGHT_YELLOW}\_____| \_____/ |_____/ |_____| |_|  \_\ |_| |_| \_____/ |_____/

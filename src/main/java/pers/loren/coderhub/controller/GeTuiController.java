@@ -29,7 +29,9 @@ public class GeTuiController {
     private static String appKey = "zWwr2rbf1B9idgvPPIBhJ5";
     private static String masterSecret = "U9ohcH6TtQ67oL4iZbPwU4";
     private static String url = "http://sdk.open.api.igexin.com/apiex.htm";
-    private static String clientId = "3f3cba9d7e0b7264717f2439b00ee194";
+    //    private static String clientId = "3f3cba9d7e0b7264717f2439b00ee194";
+//    private static String clientId = "240a53457b43f9161ce6b1023a98ba9b";
+    private static String clientId = "3f8c8db9b4c385a97ab806562193e961";
 
     public static String getImageStrFromUrl(String imgURL) {
         long startTime = System.currentTimeMillis();
@@ -74,8 +76,9 @@ public class GeTuiController {
         String baseStr = picUrl; //getImageStrFromUrl(picUrl);
         GeTuiBean geTuiBean = new GeTuiBean();
         geTuiBean.setId(1);
-        geTuiBean.setMsg("推送内容 - 观测到危险人员");
+        geTuiBean.setMsg("刘邦");
         geTuiBean.setPic(baseStr);
+        geTuiBean.setPositionUrl(baseStr);
         String jsonStr = JSON.toJSONString(geTuiBean);
         template.setTransmissionContent(jsonStr);
         SingleMessage message = new SingleMessage();
