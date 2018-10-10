@@ -63,7 +63,7 @@ public class WebSocketServer {
     @OnMessage
     public void onMessage(String message, Session session) {
         logger.info("-->onMessage " + message);
-//        // 让其他客户端都知道消息已收到
+        // 让其他客户端都知道消息已收到
 //        for (WebSocketServer socketServer : sWebSocketServers) {
 //            socketServer.sendMessage("我已经收到你发给我的消息了");
 //        }
@@ -71,7 +71,7 @@ public class WebSocketServer {
 
     @OnError
     public void onError(Session session, Throwable error) {
-        logger.info("发生错误");
+        logger.info("异常关闭");
         error.printStackTrace();
     }
 
