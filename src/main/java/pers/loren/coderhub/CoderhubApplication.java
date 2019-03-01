@@ -24,6 +24,7 @@ import java.util.List;
 @EnableCaching
 public class CoderhubApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
+        System.setProperty("es.set.netty.runtime.available.processors", "false");
         SpringApplication.run(CoderhubApplication.class, args);
     }
 

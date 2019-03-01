@@ -1,4 +1,4 @@
-package pers.loren.coderhub;
+package pers.loren.coderhub.config;
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import org.springframework.cache.CacheManager;

@@ -20,7 +20,7 @@ public class LogExceptionHandle {
         } else {
             Logger logger = LoggerFactory.getLogger(LogExceptionHandle.class);
             logger.info(">>>>>>>>>>异常开始<<<<<<<<<<<");
-            logger.error("发声异常:" + e.getClass().getSimpleName() + ",\n" + e.getMessage());
+            logger.error("发生异常:" + e.getClass().getSimpleName() + ",\n" + e.getMessage());
             logger.info(">>>>>>>>>>异常结束<<<<<<<<<<<");
         }
         return ResultUtil.error((null == e.getMessage() || e.getMessage().equals("")) ? e.getClass().getSimpleName() : e.getMessage());
