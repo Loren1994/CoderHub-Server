@@ -1,9 +1,11 @@
 package pers.loren.coderhub.es;
 
 import com.alibaba.fastjson.JSON;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,8 +15,10 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     public void saveCustomers() {
-        customerRepository.save(new Customer("111","Alice", "Smith"));
-        customerRepository.save(new Customer("222","Bob", "Smith"));
+        val list = new ArrayList<Customer>();
+        list.add(new Customer("111", "Alice", "Smith"));
+        list.add(new Customer("222", "Bob", "Smith"));
+        customerRepository.save(list.get(0));
     }
 
     public void getAll() {

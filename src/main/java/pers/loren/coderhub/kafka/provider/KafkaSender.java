@@ -9,7 +9,7 @@ import pers.loren.coderhub.kafka.beans.KMessage;
 
 import java.util.UUID;
 
-@Component
+//@Component
 public class KafkaSender {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;

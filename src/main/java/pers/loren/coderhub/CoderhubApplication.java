@@ -9,16 +9,16 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import pers.loren.coderhub.jwt.JWTFilter;
+import pers.loren.coderhub.leetcode.LeetCode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
 @MapperScan("pers.loren.coderhub.mapper")
-@EnableScheduling
+//@EnableScheduling
 @EnableAsync
 @EnableTransactionManagement
 @EnableCaching

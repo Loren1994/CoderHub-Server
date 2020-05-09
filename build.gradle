@@ -4,7 +4,7 @@ buildscript {
     }
     repositories {
         mavenCentral()
-        maven { url "http://repo.spring.io/plugins-release" }
+        maven { url "https://repo.spring.io/plugins-release" }
         maven { url "http://mvn.gt.igexin.com/nexus/content/repositories/releases/" }
     }
     dependencies {
@@ -53,7 +53,8 @@ dependencies {
 //    implementation 'com.google.protobuf:protobuf-java:3.2.0'
     implementation 'com.gexin.platform:gexin-rp-sdk-http:4.0.1.17'
     implementation 'org.apache.commons:commons-pool2:2.5.0'
-    compileOnly 'org.projectlombok:lombok:1.16.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.2'
+    compileOnly 'org.projectlombok:lombok:1.18.2'
 }
 
 //sourceSets.proto.srcDir += 'pers/loren/coderhub/protobuf'

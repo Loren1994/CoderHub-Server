@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 import java.util.logging.Logger;
 
-@Component
+//@Component
 public class KafkaReceiver {
 
     private Logger logger = java.util.logging.Logger.getLogger("KafkaReceiver");

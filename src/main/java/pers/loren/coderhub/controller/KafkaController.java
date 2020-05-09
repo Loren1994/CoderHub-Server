@@ -14,7 +14,7 @@ import pers.loren.coderhub.util.Result;
 @RequestMapping("/kafka")
 public class KafkaController {
 
-    @Autowired
+//    @Autowired
     private KafkaSender kafkaSender;
 
     @GetMapping("send")
